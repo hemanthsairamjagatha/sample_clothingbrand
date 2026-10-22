@@ -157,7 +157,7 @@ $('#slides').innerHTML = SLIDES.map((s, n) => `
 `).join('');
 $('#dots').innerHTML = SLIDES.map((_, n) => `<button aria-label="Slide ${n + 1}" data-go="${n}"></button>`).join('');
 let cur = 0, timer;
-function go(n) { cur = (n + SLIDES.length) % SLIDES.length; $$('.slide').forEach((s, i) => s.classList.toggle('on', i === cur)); $$('#dots button').forEach((b, i) => b.classList.toggle('on', i === cur)); clearInterval(timer); timer = setInterval(() => go(cur + 1), 6000) }
+function go(n) { cur = (n + SLIDES.length) % SLIDES.length; $$('.slide').forEach((s, i) => s.classList.toggle('on', i === cur)); $$('#dots button').forEach((b, i) => b.classList.toggle('on', i === cur)); clearInterval(timer); timer = setInterval(() => go(cur + 1), 5000) }
 
 /* ===== CART ===== */
 function renderCart() {

@@ -640,29 +640,34 @@ h2 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: none;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  color: #000000;
-  font-size: 24px;
-  line-height: 1;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.arrow svg {
+  width: 20px;
+  height: 20px;
+  stroke: #FFFFFF;
+  fill: none;
+  display: block;
 }
 
 .arrow:hover {
-  background: #FFFFFF;
+  background: #1a1a1a;
+  border-color: #FFFFFF;
   transform: translateY(-50%);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.85);
 }
 
 .l {
@@ -2137,9 +2142,13 @@ input[type=email] {
   }
 
   .arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .arrow svg {
+    width: 17px;
+    height: 17px;
   }
 
   .arrow.l {
