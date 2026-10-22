@@ -37,9 +37,36 @@ const PRODUCTS = [
 ];
 const CATS = [['Men', 0], ['Women', 2], ['Shirts', 9], ['T-Shirts', 6], ['Denim', 3], ['Trousers', 0], ['Shoes', 4], ['Accessories', 8]];
 const SLIDES = [
-  { h: 'DEFINE YOUR STYLE', p: 'Tailoring and everyday essentials, redrawn for Men & Women.', o: 'AUTUMN / WINTER 2026', img: 'hero-campaign.png', cat: 'All' },
-  { h: 'THE MODERN EDIT', p: 'Soft tailoring and fluid silhouettes.', o: 'UP TO 40% OFF', i: 2, cat: 'Women' },
-  { h: 'STEP FORWARD', p: 'Boots and sneakers built to last.', o: 'FROM ₹3,999', i: 4, cat: 'Shoes' }
+  {
+    kicker: 'NEW STYLES, SO MANY COLORS: OUR KNITWEAR',
+    titleMain: 'COLORFUL',
+    titleSerif: 'CLASSICS',
+    img: 'hero-campaign.png',
+    buttons: [
+      { text: 'WOMEN', cat: 'Women' },
+      { text: 'MEN', cat: 'Men' }
+    ]
+  },
+  {
+    kicker: 'CONTEMPORARY TAILORING & SILHOUETTES',
+    titleMain: 'MODERN',
+    titleSerif: 'ELEGANCE',
+    i: 2,
+    buttons: [
+      { text: 'WOMEN', cat: 'Women' },
+      { text: 'EXPLORE', cat: 'All' }
+    ]
+  },
+  {
+    kicker: 'HANDCRAFTED LEATHER & ACCESSORIES',
+    titleMain: 'STEP',
+    titleSerif: 'FORWARD',
+    i: 4,
+    buttons: [
+      { text: 'SHOES', cat: 'Shoes' },
+      { text: 'ACCESSORIES', cat: 'Accessories' }
+    ]
+  }
 ];
 
 /* ===== STATE & HELPERS ===== */
@@ -111,7 +138,23 @@ opt($('#fCat'), [...new Set(PRODUCTS.flatMap(p => [p.category, p.sub]))]);
 opt($('#fSize'), [...new Set(PRODUCTS.flatMap(p => p.sizes))]); opt($('#fColor'), Object.keys(COLORS));
 
 /* Hero carousel */
-$('#slides').innerHTML = SLIDES.map((s, n) => `<div class="slide ${n ? '' : 'on'}"><img src="${s.img || IMGS[s.i]}" alt="Campaign: ${s.h}"><div class="tx"><h1>${s.h}</h1><p>${s.p}</p><div class="off">${s.o}</div><button class="btn" data-cat="${s.cat}">Shop now</button></div></div>`).join('');
+$('#slides').innerHTML = SLIDES.map((s, n) => `
+  <div class="slide ${n ? '' : 'on'}">
+    <img src="${s.img || IMGS[s.i]}" alt="Campaign: ${s.titleMain} ${s.titleSerif}">
+    <div class="tx hero-center-tx">
+      ${s.kicker ? `<p class="hero-kicker">${s.kicker}</p>` : ''}
+      <h1 class="hero-title">
+        <span class="hero-title-main">${s.titleMain}</span>
+        <span class="hero-title-serif">${s.titleSerif}</span>
+      </h1>
+      ${s.buttons ? `
+        <div class="hero-btns">
+          ${s.buttons.map(b => `<button class="hero-btn" data-cat="${b.cat}">${b.text}</button>`).join('')}
+        </div>
+      ` : ''}
+    </div>
+  </div>
+`).join('');
 $('#dots').innerHTML = SLIDES.map((_, n) => `<button aria-label="Slide ${n + 1}" data-go="${n}"></button>`).join('');
 let cur = 0, timer;
 function go(n) { cur = (n + SLIDES.length) % SLIDES.length; $$('.slide').forEach((s, i) => s.classList.toggle('on', i === cur)); $$('#dots button').forEach((b, i) => b.classList.toggle('on', i === cur)); clearInterval(timer); timer = setInterval(() => go(cur + 1), 6000) }
