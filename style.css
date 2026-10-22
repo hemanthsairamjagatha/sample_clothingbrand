@@ -268,7 +268,7 @@ h2 {
   letter-spacing: 0.01em;
 }
 
-/* ── CENTER BRAND LOGO ── */
+/* ── CENTER BRAND LOGO (IMAGE 1) ── */
 .logo-center {
   position: absolute;
   left: 50%;
@@ -283,36 +283,13 @@ h2 {
   /* Brand logo remains permanently visible at all times */
 }
 
-.hdr-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #FFFFFF;
-  text-decoration: none;
-  user-select: none;
-}
-
-.hdr-compass {
-  width: 26px;
-  height: 26px;
-  color: #FFFFFF;
+.brand-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
   display: block;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.logo-center:hover .hdr-compass {
-  transform: rotate(45deg);
-}
-
-.hdr-logo-text {
-  font-family: 'Archivo Narrow', sans-serif;
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  color: #FFFFFF;
-  line-height: 1;
-  white-space: nowrap;
+  user-select: none;
 }
 
 /* ── NAV BACKDROP ── */
@@ -1762,10 +1739,11 @@ input[type=email] {
   color: #FFFFFF;
 }
 
-.ftr-compass {
-  width: 32px;
-  height: 32px;
-  color: #FFFFFF;
+.ftr-logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 50px;
+  object-fit: contain;
   display: block;
 }
 
@@ -2090,14 +2068,8 @@ input[type=email] {
     display: none;
   }
 
-  .hdr-compass {
-    width: 22px;
-    height: 22px;
-  }
-
-  .hdr-logo-text {
-    font-size: 16px;
-    letter-spacing: 0.16em;
+  .brand-logo-img {
+    height: 30px;
   }
 
   #q {
