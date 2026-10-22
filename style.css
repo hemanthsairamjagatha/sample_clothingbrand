@@ -268,7 +268,7 @@ h2 {
   letter-spacing: 0.01em;
 }
 
-/* ── CENTER BRAND LOGO (IMAGE 1) ── */
+/* ── CENTER BRAND LOGO ── */
 .logo-center {
   position: absolute;
   left: 50%;
@@ -283,13 +283,36 @@ h2 {
   /* Brand logo remains permanently visible at all times */
 }
 
-.brand-logo-img {
-  height: 38px;
-  width: auto;
-  max-width: 150px;
-  object-fit: contain;
-  display: block;
+.hdr-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  text-decoration: none;
   user-select: none;
+}
+
+.hdr-compass {
+  width: 26px;
+  height: 26px;
+  color: #FFFFFF;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.logo-center:hover .hdr-compass {
+  transform: rotate(45deg);
+}
+
+.hdr-logo-text {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 /* ── NAV BACKDROP ── */
@@ -2067,8 +2090,14 @@ input[type=email] {
     display: none;
   }
 
-  .brand-logo-img {
-    height: 30px;
+  .hdr-compass {
+    width: 22px;
+    height: 22px;
+  }
+
+  .hdr-logo-text {
+    font-size: 16px;
+    letter-spacing: 0.16em;
   }
 
   #q {
