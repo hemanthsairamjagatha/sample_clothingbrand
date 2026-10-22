@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tanyata — Menswear & Womenswear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bodoni+Moda:wght@500;700&family=Manrope:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=18">
+</head>
+
+<body>
+  <header class="hdr" id="hdr">
+    <!-- Left: 2-to-3 line menu toggle button and inline category drawer (Image 2 & 3) -->
+    <div class="hdr-left">
+      <button class="menu-toggle-btn" id="menuToggle" aria-label="Toggle navigation categories" aria-expanded="false">
+        <span class="bar line-top"></span>
+        <span class="bar line-mid"></span>
+        <span class="bar line-bot"></span>
+      </button>
+
+      <nav class="cat-nav" id="catNav" aria-label="Categories">
+        <a href="#shop" data-cat="Women" class="cat-item">
+          <span class="cat-name">Woman</span>
+        </a>
+        <a href="#shop" data-cat="Men" class="cat-item">
+          <span class="cat-name">Man</span>
+        </a>
+        <a href="#shop" data-cat="Kids" data-sub="Newborns" class="cat-item">
+          <span class="cat-name">Newborns</span>
+          <span class="cat-age">0-36 months</span>
+        </a>
+        <a href="#shop" data-cat="Kids" data-sub="Children" class="cat-item">
+          <span class="cat-name">Children</span>
+          <span class="cat-age">3-10 years</span>
+        </a>
+        <a href="#shop" data-cat="Kids" data-sub="Teen" class="cat-item">
+          <span class="cat-name">Teen</span>
+          <span class="cat-age">10-15 years</span>
+        </a>
+        <a href="#shop" data-cat="Shoes" class="cat-item">
+          <span class="cat-name">Shoes</span>
+        </a>
+        <a href="#shop" data-cat="Accessories" class="cat-item">
+          <span class="cat-name">Accessories</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Center: Brand Logo centered exactly in the navigation bar (Image 1) -->
+    <a class="logo-center" id="logoCenter" href="#" data-cat="All" aria-label="Tanyata Home">
+      <img src="tanyata-logo-trans.png" alt="Tanyata" class="brand-logo-img">
+    </a>
+
+    <!-- Right: Tools -->
+    <div class="tools">
+      <form id="searchForm" role="search"><input id="q" type="search" placeholder="Search" aria-label="Search products">
+      </form>
+      <button class="ic" id="loginBtn" aria-label="Account">Login</button>
+      <button class="ic" id="wishBtn" aria-label="Wishlist">♡ <b id="wishCount">0</b></button>
+      <button class="ic" id="bagBtn" aria-label="Open bag">Bag <b id="cartCount">0</b></button>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main>
+    <section class="hero" aria-roledescription="carousel" aria-label="Campaigns">
+      <div id="slides"></div>
+      <button class="arrow l" id="prev" aria-label="Previous">‹</button><button class="arrow r" id="next"
+        aria-label="Next">›</button>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <!-- ── TAGLINE BANNER ── -->
+    <div class="tagline-strip" id="tagline-strip">
+      <p>Explore our collections and discover all the brands in the Tanyata world.</p>
+    </div>
+
+    <!-- ── BRANDS SHOWCASE ── -->
+    <section class="brands-section" id="brands" aria-label="Our brands">
+      <div class="brands-rail">
+        <div class="brand-item" data-cat="Women">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=75" alt="Women's collection"
+            loading="lazy" />
+          <span class="brand-name">FEMME</span>
+        </div>
+        <div class="brand-item" data-cat="Men">
+          <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=75" alt="Men's collection"
+            loading="lazy" />
+          <span class="brand-name">HOMME</span>
+        </div>
+        <div class="brand-item" data-cat="Shoes">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=75" alt="Shoes collection"
+            loading="lazy" />
+          <span class="brand-name">SOLE</span>
+        </div>
+        <div class="brand-item" data-cat="Accessories">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=75" alt="Accessories collection"
+            loading="lazy" />
+          <span class="brand-name">LUXE</span>
+        </div>
+        <div class="brand-item" data-cat="Kids">
+          <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=75" alt="Kids collection"
+            loading="lazy" />
+          <span class="brand-name">JUNIOR</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NEW IN SECTION ── -->
+    <section class="sec new-in-section" id="newSec" aria-label="New arrivals">
+      <div class="small-12 columns">
+        <div class="new-in-header section-header">
+          <div class="new-in-text">
+            <h2 class="new-in-title h3">New arivals</h2>
+            <p class="new-in-sub">Upgrade your closet with everything trendy and new</p>
+          </div>
+          <a href="#shop" class="new-in-link" data-cat="All">Shop New Arrivals</a>
+        </div>
+        <div class="rail new-in-rail" id="newRail"></div>
+      </div>
+    </section>
+
+    <!-- ── CAMPAIGN LOOKBOOK BANNER ── -->
+    <!-- ── SVG SPRITE (arrowline_right) ── -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+      <symbol id="arrowline_right" viewBox="0 0 18 12">
+        <line x1="0.5" y1="6" x2="17.5" y2="6"></line>
+        <polyline points="12.5 1 17.5 6 12.5 11"></polyline>
+      </symbol>
+    </svg>
+    <section class="lookbook-banner-section" id="lookbookSec" aria-label="Campaign Lookbook">
+      <div class="lookbook-banner">
+        <img src="campaign-banner.jpg" alt="Venice Tailored Collection — Shop the Look" loading="lazy">
+        
+        <!-- Hotspot 1: Coat -->
+        <div class="lookbook-hotspot-item" style="left: 47.5%; top: 26%;">
+          <button class="lookbook-hotspot css-1ux7fnk" data-hotspot="5" aria-label="Toggle Coat details" aria-expanded="false">
+            <span class="lookbook-hotspot-pin"></span>
+            <span class="lookbook-hotspot-close" aria-hidden="true">&times;</span>
+          </button>
+          <div class="lookbook-card lookbook-card--left" data-open="5" role="button" tabindex="0" aria-label="View Tailored Wool Blazer details">
+            <img src="coat-1.png?v=2" alt="Tailored Wool Blazer" class="lookbook-card-thumb">
+            <div class="lookbook-card-info">
+              <h4 class="lookbook-card-title">Tailored Wool Blazer</h4>
+              <div class="lookbook-card-price">₹6,299</div>
+              <div class="lookbook-card-arrow">
+                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <use role="presentation" xlink:href="#arrowline_right"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspot 2: Shirt -->
+        <div class="lookbook-hotspot-item" style="left: 51.8%; top: 34%;">
+          <button class="lookbook-hotspot css-1ux7fnk" data-hotspot="6" aria-label="Toggle Shirt details" aria-expanded="false">
+            <span class="lookbook-hotspot-pin"></span>
+            <span class="lookbook-hotspot-close" aria-hidden="true">&times;</span>
+          </button>
+          <div class="lookbook-card" data-open="6" role="button" tabindex="0" aria-label="View Oxford Button-Down details">
+            <img src="shirt-1.png?v=2" alt="Oxford Button-Down" class="lookbook-card-thumb">
+            <div class="lookbook-card-info">
+              <h4 class="lookbook-card-title">Oxford Button-Down</h4>
+              <div class="lookbook-card-price">₹1,599</div>
+              <div class="lookbook-card-arrow">
+                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <use role="presentation" xlink:href="#arrowline_right"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspot 3: Pant -->
+        <div class="lookbook-hotspot-item" style="left: 48.5%; top: 58%;">
+          <button class="lookbook-hotspot css-1ux7fnk" data-hotspot="8" aria-label="Toggle Pant details" aria-expanded="false">
+            <span class="lookbook-hotspot-pin"></span>
+            <span class="lookbook-hotspot-close" aria-hidden="true">&times;</span>
+          </button>
+          <div class="lookbook-card" data-open="8" role="button" tabindex="0" aria-label="View Pleated Formal Trousers details">
+            <img src="pant-1.png?v=2" alt="Pleated Formal Trousers" class="lookbook-card-thumb">
+            <div class="lookbook-card-info">
+              <h4 class="lookbook-card-title">Pleated Formal Trousers</h4>
+              <div class="lookbook-card-price">₹3,499</div>
+              <div class="lookbook-card-arrow">
+                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <use role="presentation" xlink:href="#arrowline_right"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="best" aria-label="Best sellers">
+      <div class="small-12 columns">
+        <h2>Best sellers</h2>
+        <div class="grid" id="bestGrid"></div>
+      </div>
+    </section>
+
+    <section class="editorial">
+      <div class="ed big" data-cat="Women"><img alt="Women's trending edit" data-i="2">
+        <div>
+          <h3>Trending now</h3>
+          <p>The tailored edit for women</p><span class="btn">Shop women</span>
+        </div>
+      </div>
+      <div class="ed" data-cat="Men"><img alt="Men's layers" data-i="0">
+        <div>
+          <h3>Smart layers</h3><span class="btn">Shop men</span>
+        </div>
+      </div>
+      <div class="ed" data-cat="Shoes"><img alt="Shoes" data-i="4">
+        <div>
+          <h3>Step up</h3><span class="btn">Shop shoes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner">
+      <div>
+        <h2>Winter Collection 2026</h2>
+        <p>Wool, flannel and heavy knits. Up to 40% off.</p><button class="btn" data-cat="All" data-sale="1">Shop the
+          collection</button>
+      </div>
+    </section>
+
+    <section class="sec" id="offers" aria-label="Special offers">
+      <div class="small-12 columns">
+        <h2>Special offers</h2>
+        <div class="grid" id="offerGrid"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="recentSec" aria-label="Recently viewed" hidden>
+      <div class="small-12 columns">
+        <h2>Recently viewed</h2>
+        <div class="rail" id="recentRail"></div>
+      </div>
+    </section>
+
+    <!-- ── EXCLUSIVE ONLINE EDIT BANNER ── -->
+    <section class="exclusive-banner-section" id="exclusiveSec" aria-label="Exclusive Online Edit">
+      <div class="exclusive-banner">
+        <img src="exclusive-edit-banner.png" alt="Shop the Exclusive Online Edit" loading="lazy">
+      </div>
+    </section>
+
+    <section class="sec" id="shop" aria-label="All products">
+      <div class="small-12 columns">
+        <h2 id="shopTitle">All products</h2>
+        <div class="toolbar">
+          <div class="filters">
+            <select id="fCat" aria-label="Category"></select>
+            <select id="fSize" aria-label="Size">
+              <option value="">Size</option>
+            </select>
+            <select id="fColor" aria-label="Color">
+              <option value="">Color</option>
+            </select>
+            <select id="fPrice" aria-label="Price">
+              <option value="">Price</option>
+              <option value="0-1500">Under ₹1,500</option>
+              <option value="1500-3000">₹1,500 – ₹3,000</option>
+              <option value="3000-99999">Above ₹3,000</option>
+            </select>
+            <label class="chk"><input type="checkbox" id="fSale"> On sale</label>
+            <button class="link" id="reset">Clear</button>
+          </div>
+          <span id="count" aria-live="polite"></span>
+          <select id="sort" aria-label="Sort by">
+            <option value="pop">Popularity</option>
+            <option value="new">Newest</option>
+            <option value="lo">Price: low to high</option>
+            <option value="hi">Price: high to low</option>
+          </select>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr" role="contentinfo">
+    <div class="ftr-inner">
+      <div class="ftr-grid">
+        <!-- Left: Accordion Navigation -->
+        <div class="ftr-col ftr-menu">
+          <div class="ftr-acc-item">
+            <button class="ftr-acc-btn" type="button" aria-expanded="false">
+              <span>CONTACT</span>
+              <span class="ftr-plus">+</span>
+            </button>
+            <div class="ftr-acc-panel">
+              <a href="mailto:support@tanyata.com">Customer Care: support@tanyata.com</a>
+              <a href="tel:+918008269282">Call Us: +91 (0) 800 826 9282</a>
+              <a href="#">WhatsApp Assistance</a>
+              <a href="#">Store Locator</a>
+            </div>
+          </div>
+
+          <div class="ftr-acc-item">
+            <button class="ftr-acc-btn" type="button" aria-expanded="false">
+              <span>CLIENT SERVICE</span>
+              <span class="ftr-plus">+</span>
+            </button>
+            <div class="ftr-acc-panel">
+              <a href="#">Track Your Order</a>
+              <a href="#">Shipping &amp; Delivery</a>
+              <a href="#">Returns &amp; Exchanges</a>
+              <a href="#">Payment Methods</a>
+              <a href="#">Size Guide</a>
+              <a href="#">FAQs</a>
+            </div>
+          </div>
+
+          <div class="ftr-acc-item">
+            <button class="ftr-acc-btn" type="button" aria-expanded="false">
+              <span>CORPORATE</span>
+              <span class="ftr-plus">+</span>
+            </button>
+            <div class="ftr-acc-panel">
+              <a href="#">The Tanyata Heritage</a>
+              <a href="#">Sustainability &amp; Ethics</a>
+              <a href="#">Careers</a>
+              <a href="#">Press &amp; Media</a>
+              <a href="#">Corporate Governance</a>
+            </div>
+          </div>
+
+          <div class="ftr-acc-item">
+            <button class="ftr-acc-btn" type="button" aria-expanded="false">
+              <span>FOLLOW US</span>
+              <span class="ftr-plus">+</span>
+            </button>
+            <div class="ftr-acc-panel">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">X (Twitter)</a>
+              <a href="#">YouTube</a>
+              <a href="#">Pinterest</a>
+            </div>
+          </div>
+
+          <div class="ftr-acc-item">
+            <button class="ftr-acc-btn" type="button" aria-expanded="false">
+              <span>LEGAL</span>
+              <span class="ftr-plus">+</span>
+            </button>
+            <div class="ftr-acc-panel">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms &amp; Conditions of Sale</a>
+              <a href="#">Cookie Settings</a>
+              <a href="#">Accessibility Statement</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Newsletter & Regional -->
+        <div class="ftr-col ftr-right">
+          <div class="ftr-newsletter">
+            <h4 class="ftr-nl-title">NEWSLETTER</h4>
+            <form id="news" class="ftr-nl-form">
+              <label for="nlEmail" class="ftr-nl-label">E-MAIL ADDRESS*</label>
+              <div class="ftr-nl-input-row">
+                <input id="nlEmail" type="email" required placeholder="Enter your e-mail" aria-label="E-mail address">
+                <button type="submit" class="ftr-continue-btn">CONTINUE</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="ftr-locales">
+            <div class="ftr-acc-item">
+              <button class="ftr-acc-btn" type="button" aria-expanded="false">
+                <span>SHOP IN: UNITED KINGDOM</span>
+                <span class="ftr-plus">+</span>
+              </button>
+              <div class="ftr-acc-panel">
+                <a href="#">United Kingdom (GBP &pound;)</a>
+                <a href="#">India (INR &#8377;)</a>
+                <a href="#">United States (USD $)</a>
+                <a href="#">European Union (EUR &euro;)</a>
+              </div>
+            </div>
+
+            <div class="ftr-acc-item">
+              <button class="ftr-acc-btn" type="button" aria-expanded="false">
+                <span>LANGUAGE ENGLISH</span>
+                <span class="ftr-plus">+</span>
+              </button>
+              <div class="ftr-acc-panel">
+                <a href="#">English</a>
+                <a href="#">Italiano</a>
+                <a href="#">Fran&ccedil;ais</a>
+                <a href="#">Deutsch</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar: Brand Logo & Credits -->
+      <div class="ftr-bottom">
+        <div class="ftr-brand">
+          <svg class="ftr-compass" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9.5"></circle>
+            <polygon points="12 2.8 14.4 9.6 21.2 12 14.4 14.4 12 21.2 9.6 14.4 2.8 12 9.6 9.6 12 2.8" fill="currentColor"></polygon>
+            <circle cx="12" cy="12" r="1.5" fill="#000"></circle>
+          </svg>
+          <span class="ftr-logo-text">TANYATA</span>
+        </div>
+
+        <div class="ftr-legal">
+          <p class="ftr-copy">COPYRIGHT &copy; 2026 TANYATA S.P.A. ALL RIGHTS RESERVED.</p>
+          <p class="ftr-credit">
+            WEBSITE DESIGN &amp; DEVELOPED BY
+            <a href="https://www.pixenox.com" target="_blank" rel="noopener noreferrer">PIXENOX SOLUTIONS (WWW.PIXENOX.COM)</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="dh">
+      <h3 id="dTitle">Your bag</h3><button class="ic" id="dClose" aria-label="Close">✕</button>
+    </div>
+    <div class="db" id="dBody"></div>
+    <div class="df" id="dFoot"></div>
+  </aside>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Product details" hidden>
+    <div class="mbox" id="mBox"></div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js?v=5"></script>
+</body>
+
+</html>
