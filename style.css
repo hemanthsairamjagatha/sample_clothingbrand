@@ -514,9 +514,9 @@ h2 {
 .hero-btn {
   background: #FFFFFF;
   color: #000000;
-  border: none;
+  border: 1px solid #FFFFFF;
   border-radius: 0;
-  padding: 16px 46px;
+  padding: 15px 44px;
   font-family: 'Manrope', sans-serif;
   font-size: 13.5px;
   font-weight: 800;
@@ -529,17 +529,22 @@ h2 {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hero-btn:hover {
-  background: #E8E8E8;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  background: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+  transform: none;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
 }
 
 .hero-btn:active {
-  transform: translateY(0);
+  background: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+  transform: none;
 }
 
 .slide h1 {
@@ -616,7 +621,7 @@ h2 {
 
 .arrow:hover {
   background: #FFFFFF;
-  transform: translateY(-50%) scale(1.08);
+  transform: translateY(-50%);
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
 }
 
