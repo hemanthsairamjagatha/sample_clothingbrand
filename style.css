@@ -574,7 +574,7 @@ h2 {
   box-sizing: border-box;
   background: #000000;
   color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  border: 0;
   border-radius: 0;
   padding: 0 32px;
   font-family: 'Manrope', sans-serif;
@@ -588,22 +588,22 @@ h2 {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   transform: none;
 }
 
 .hero-btn:hover {
-  background: #FFFFFF;
-  color: #000000;
-  border-color: #FFFFFF;
+  background: #1a1a1a;
+  color: #FFFFFF;
+  border: 0;
   transform: none;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.65);
 }
 
 .hero-btn:active {
-  background: #E5E5E5;
-  color: #000000;
-  border-color: #E5E5E5;
+  background: #2a2a2a;
+  color: #FFFFFF;
+  border: 0;
   transform: none;
 }
 
@@ -629,8 +629,8 @@ h2 {
 
 .btn {
   display: inline-block;
-  background: #fff;
-  color: #000;
+  background: #000000;
+  color: #FFFFFF;
   border: 0;
   padding: 12px 26px;
   font-weight: 700;
@@ -638,22 +638,25 @@ h2 {
   letter-spacing: .12em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: .2s
+  transition: .2s;
 }
 
 .btn:hover {
-  background: var(--mut)
+  background: #1a1a1a;
+  color: #FFFFFF;
+  border: 0;
 }
 
 .btn.ghost {
-  background: none;
-  color: #fff;
-  border: 1px solid #fff
+  background: #000000;
+  color: #FFFFFF;
+  border: 0;
 }
 
 .btn.ghost:hover {
-  background: #fff;
-  color: #000
+  background: #1a1a1a;
+  color: #FFFFFF;
+  border: 0;
 }
 
 .arrow {
@@ -661,7 +664,7 @@ h2 {
   top: 50%;
   transform: translateY(-50%);
   background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 0;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -672,7 +675,7 @@ h2 {
   cursor: pointer;
   z-index: 10;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .arrow svg {
@@ -685,7 +688,7 @@ h2 {
 
 .arrow:hover {
   background: #1a1a1a;
-  border-color: #FFFFFF;
+  border: 0;
   transform: translateY(-50%);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.85);
 }
@@ -1695,8 +1698,8 @@ input[type=email] {
 }
 
 .ftr-continue-btn {
-  background: transparent;
-  border: 1px solid #FFFFFF;
+  background: #000000;
+  border: 0;
   color: #FFFFFF;
   font-family: 'Archivo Narrow', sans-serif;
   font-size: 12px;
@@ -1712,8 +1715,8 @@ input[type=email] {
 }
 
 .ftr-continue-btn:hover {
-  background: #FFFFFF;
-  color: #000000;
+  background: #1a1a1a;
+  color: #FFFFFF;
 }
 
 .ftr-locales {
