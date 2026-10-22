@@ -433,31 +433,34 @@ h2 {
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
-  filter: brightness(.6)
+  filter: brightness(.75);
 }
 
 .slide .tx {
   position: absolute;
   left: 6%;
   bottom: 14%;
-  max-width: 560px
+  max-width: 560px;
 }
 
 .slide h1 {
-  font: 700 clamp(40px, 7vw, 92px)/.95 'Bodoni Moda', serif
+  font: 700 clamp(40px, 7vw, 92px)/.95 'Bodoni Moda', serif;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
 }
 
 .slide p {
   margin: 14px 0 6px;
-  color: var(--mut);
-  font-size: 16px
+  color: #e0e0e0;
+  font-size: 16px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
 }
 
 .slide .off {
   color: var(--sale);
   font-weight: 700;
   margin-bottom: 22px;
-  font-size: 18px
+  font-size: 18px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
 }
 
 .btn {

@@ -36,9 +36,11 @@ const PRODUCTS = [
   P(20, 'Oversized Wool Overcoat', 'Women', 'Blazers', 7, 2, 10999, 7699, ['sale', 'new'], ['Beige', 'Black'])
 ];
 const CATS = [['Men', 0], ['Women', 2], ['Shirts', 9], ['T-Shirts', 6], ['Denim', 3], ['Trousers', 0], ['Shoes', 4], ['Accessories', 8]];
-const SLIDES = [{ h: 'DEFINE YOUR STYLE', p: 'Tailoring and everyday essentials, redrawn.', o: 'UP TO 50% OFF', i: 0, cat: 'Men' },
-{ h: 'THE MODERN EDIT', p: 'Soft tailoring and fluid silhouettes.', o: 'UP TO 40% OFF', i: 2, cat: 'Women' },
-{ h: 'STEP FORWARD', p: 'Boots and sneakers built to last.', o: 'FROM ₹3,999', i: 4, cat: 'Shoes' }];
+const SLIDES = [
+  { h: 'DEFINE YOUR STYLE', p: 'Tailoring and everyday essentials, redrawn for Men & Women.', o: 'AUTUMN / WINTER 2026', img: 'hero-campaign.png', cat: 'All' },
+  { h: 'THE MODERN EDIT', p: 'Soft tailoring and fluid silhouettes.', o: 'UP TO 40% OFF', i: 2, cat: 'Women' },
+  { h: 'STEP FORWARD', p: 'Boots and sneakers built to last.', o: 'FROM ₹3,999', i: 4, cat: 'Shoes' }
+];
 
 /* ===== STATE & HELPERS ===== */
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -109,7 +111,7 @@ opt($('#fCat'), [...new Set(PRODUCTS.flatMap(p => [p.category, p.sub]))]);
 opt($('#fSize'), [...new Set(PRODUCTS.flatMap(p => p.sizes))]); opt($('#fColor'), Object.keys(COLORS));
 
 /* Hero carousel */
-$('#slides').innerHTML = SLIDES.map((s, n) => `<div class="slide ${n ? '' : 'on'}"><img src="${IMGS[s.i]}" alt="Campaign: ${s.h}"><div class="tx"><h1>${s.h}</h1><p>${s.p}</p><div class="off">${s.o}</div><button class="btn" data-cat="${s.cat}">Shop now</button></div></div>`).join('');
+$('#slides').innerHTML = SLIDES.map((s, n) => `<div class="slide ${n ? '' : 'on'}"><img src="${s.img || IMGS[s.i]}" alt="Campaign: ${s.h}"><div class="tx"><h1>${s.h}</h1><p>${s.p}</p><div class="off">${s.o}</div><button class="btn" data-cat="${s.cat}">Shop now</button></div></div>`).join('');
 $('#dots').innerHTML = SLIDES.map((_, n) => `<button aria-label="Slide ${n + 1}" data-go="${n}"></button>`).join('');
 let cur = 0, timer;
 function go(n) { cur = (n + SLIDES.length) % SLIDES.length; $$('.slide').forEach((s, i) => s.classList.toggle('on', i === cur)); $$('#dots button').forEach((b, i) => b.classList.toggle('on', i === cur)); clearInterval(timer); timer = setInterval(() => go(cur + 1), 6000) }
