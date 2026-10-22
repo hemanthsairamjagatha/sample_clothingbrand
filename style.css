@@ -341,6 +341,26 @@ h2 {
   font-weight: 700
 }
 
+.ic-bag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #FFFFFF;
+}
+
+.icon-cart {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.icon-cart .hidden {
+  display: none !important;
+}
+
 .hero {
   position: relative;
   width: 100%;

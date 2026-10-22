@@ -127,7 +127,19 @@ function renderHome() {
   fill('#offerGrid', PRODUCTS.filter(p => disc(p) >= 35).slice(0, 4));
   const r = st.recent.map(byId).filter(Boolean); $('#recentSec').hidden = !r.length; fill('#recentRail', r);
 }
-function renderAll() { renderShop(); renderHome(); $('#wishCount').textContent = st.wish.length; $('#cartCount').textContent = st.cart.reduce((n, i) => n + i.qty, 0); renderCart() }
+function renderAll() {
+  renderShop();
+  renderHome();
+  $('#wishCount').textContent = st.wish.length;
+  const count = st.cart.reduce((n, i) => n + i.qty, 0);
+  $('#cartCount').textContent = count;
+  const ePath = $('.icon-cart .cart-empty'), fPath = $('.icon-cart .cart-full');
+  if (ePath && fPath) {
+    ePath.classList.toggle('hidden', count > 0);
+    fPath.classList.toggle('hidden', count === 0);
+  }
+  renderCart();
+}
 
 /* Static sections */
 if ($('#catGrid')) $('#catGrid').innerHTML = CATS.map(([n, i]) => `<div class="cat" tabindex="0" role="button" data-cat="${n}"><img src="${IMGS[i]}" alt="${n}" loading="lazy"><span>${n === 'Men' || n === 'Women' ? n + '’s wear' : n}</span></div>`).join('');
