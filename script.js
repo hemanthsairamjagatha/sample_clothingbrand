@@ -211,6 +211,7 @@ function toggleNav(force) {
     btn.setAttribute('aria-label', isOpen ? 'Close navigation categories' : 'Open navigation categories');
   }
   if (backdrop) backdrop.classList.toggle('active', isOpen);
+  if (typeof updateHeaderOnScroll === 'function') updateHeaderOnScroll();
 }
 function closeNav() { toggleNav(false); }
 
@@ -308,6 +309,44 @@ $('#q').oninput = e => { st.q = e.target.value.trim(); renderShop() };
 $('#fSale').onchange = e => { st.sale = e.target.checked; renderShop() };
 $('#reset').onclick = () => { Object.assign(st, { q: '', cat: 'All', size: '', color: '', price: '', sale: false, onlyWish: false }); $$('.filters select').forEach(s => s.selectedIndex = 0); $('#fSale').checked = false; $('#q').value = ''; renderShop() };
 $('#news').onsubmit = e => { e.preventDefault(); e.target.reset(); toast('Thanks for subscribing') };
-window.addEventListener('scroll', () => $('#hdr').style.boxShadow = scrollY > 10 ? '0 4px 20px #000' : 'none');
+/* ===== SMART HEADER SCROLL (TRANSPARENT AT TOP, HIDE DOWN, BLACK UP) ===== */
+let lastScrollY = window.scrollY;
+function updateHeaderOnScroll() {
+  const hdr = $('#hdr');
+  if (!hdr) return;
+  const y = window.scrollY;
+  const isNavOpen = hdr.classList.contains('nav-open');
+
+  if (isNavOpen) {
+    hdr.classList.remove('hdr--hidden');
+    hdr.classList.add('hdr--black');
+    hdr.classList.remove('hdr--transparent');
+    return;
+  }
+
+  // At the very top (hero section) -> transparent
+  if (y <= 15) {
+    hdr.classList.remove('hdr--hidden');
+    hdr.classList.remove('hdr--black');
+    hdr.classList.add('hdr--transparent');
+  } else {
+    const diff = y - lastScrollY;
+    // Scrolling DOWNWARDS: hide header (goes up)
+    if (diff > 5 && y > 60) {
+      hdr.classList.add('hdr--hidden');
+    }
+    // Scrolling UPWARDS: reveal header in black colour
+    else if (diff < -5) {
+      hdr.classList.remove('hdr--hidden');
+      hdr.classList.add('hdr--black');
+      hdr.classList.remove('hdr--transparent');
+    }
+  }
+
+  lastScrollY = y;
+}
+
+window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+updateHeaderOnScroll();
 
 renderAll(); go(0);
